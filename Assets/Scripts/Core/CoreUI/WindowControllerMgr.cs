@@ -50,5 +50,19 @@ public class WindowControllerMgr : Singleton<WindowControllerMgr>
         m_lastWindowID = eWindow_;
     }
 
+	public void DoHideLastWindow()
+	{
+		if (m_lastWindowID != EWindowID.Max && m_windowDic.ContainsKey(m_lastWindowID))
+		{
+			m_windowDic [m_lastWindowID].SetActive (false);
+		}
+	}
 
+	public void DoShowLastWindow()
+	{
+		if (m_lastWindowID != EWindowID.Max && m_windowDic.ContainsKey(m_lastWindowID))
+		{
+			m_windowDic [m_lastWindowID].SetActive (true);
+		}
+	}
 }
